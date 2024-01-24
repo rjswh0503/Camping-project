@@ -33,7 +33,7 @@ const BBQ = () => {
                   width: "272.5px",
                   marginRight: "30px",
                 }}>
-                  <Link to={`/detail/${product.productId}`}>
+                  <Link to={`/shop/detail/${product.productId}`}>
                     <div className='imgWrap'>
                       <img src={product.productThumbnail} className="imgs" alt={product.productName} />
                     </div>

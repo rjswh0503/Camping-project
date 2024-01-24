@@ -76,6 +76,11 @@ function NavBar() {
                 <AiOutlineHome style={{ marginBottom: '2px' }} /> 홈페이지
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link as={Link} to="/shop/sell" onClick={() => updateExpanded(false)}>
+                <AiOutlineHome style={{ marginBottom: '2px' }} /> 상품등록
+              </Nav.Link>
+            </Nav.Item>
 
             <Nav.Item>
               <Nav.Link

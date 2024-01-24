@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ShopDetail from './Component/pages/shop/ShopDetail/ShopDetail';
-import ShopDetail2 from './Component/pages/shop/ShopDetail/ShopDetail2';
 import OrderMain from './Component/pages/shop/ShopOrder/OrderMain';
 import SellMain from './Component/pages/shop/ShopSell/SellMain';
 import {
@@ -42,6 +41,14 @@ import Kitchen from './Component/pages/shop/Category/Kitchen';
 import Lamp from './Component/pages/shop/Category/Lamp';
 import BBQ from './Component/pages/shop/Category/BBQ';
 import Chair from './Component/pages/shop/Category/Table';
+import ShopMore from './Component/pages/shop/ShopDetail/ShopMore';
+import ShopInquiry from './Component/pages/shop/ShopDetail/ShopInquiry';
+import Review from './Component/pages/shop/ShopDetail/ShopReview';
+import OrderProduct from './Component/pages/shop/ShopOrder/OrderProduct';
+import CreateProduct from './Component/pages/shop/ShopOrder/CreateProduct';
+
+
+
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -119,7 +126,7 @@ function App() {
               <Route path="/main" element={<ShopMain />} />
                 <Route path="/detail/:productId" element={<ShopDetail/>} />
                 <Route path="/order" element={<OrderMain />} />
-                <Route path="/sell" element={<SellMain />} />
+                <Route path="/sell" element={<CreateProduct />} />
                 <Route path="/mypage" element={<ShopMyPage />} />
                 <Route path="/cart" element={<ShopCart/>} />
                 <Route path="/tent" element={<Tent/>}/>
@@ -128,6 +135,7 @@ function App() {
                 <Route path="/kitchen" element={<Kitchen/>}/>S
                 <Route path="/lamp" element={<Lamp/>}/>
                 <Route path="/fireplace" element={<BBQ/>}/>
+                
               </Routes>
             </ShopLayout>
           }
