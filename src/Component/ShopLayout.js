@@ -1,16 +1,15 @@
 import React from 'react';
 import ShopHeader from './ShopHeader';
 import ShopNav from './ShopNav';
-
+import Nav from '../CampNavbar';
 import Carousel from './Carousel/MainPageCarousel';
 
 
 function ShopLayout({ children }) {
     return(
         <div>
-            <ShopHeader/>
-            <ShopNav/>
-        
+            <Nav/>
+           
             {children}
             
           

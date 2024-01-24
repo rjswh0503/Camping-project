@@ -1,17 +1,13 @@
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
-import Tent from './pages/shop/Category/Tent';
-import Sleeping from './pages/shop/Category/Sleeping';
-import Kitchen from './pages/shop/Category/Kitchen';
-import Led from './pages/shop/Category/Lamp';
-import Table from './pages/shop/Category/Table';
-import BBQ from './pages/shop/Category/BBQ';
+import { Link } from 'react-router-dom';
+import Nav from '../CampNavbar';
 
 function Nav( ) {
   return (
    
       <div><br/>
         <div className='main-category'>
+        <Nav/>
           <div className='contentsWrap'>
             <ul className='clearfix'>
               <li className='f1'>
@@ -53,31 +49,6 @@ function Nav( ) {
             </ul>
           </div>
         </div>
-        
-          
-          <Routes>
-            <Route path='/shop/tent' element={<Tent/>} />
-            </Routes>
-
-            <Routes>
-            <Route path='/shop/sleeping' element={<Sleeping/>} />
-            </Routes>
-
-            <Routes>
-            <Route path='/shop/led' element={<Led/>} />
-            </Routes>
-
-            <Routes>
-            <Route path='/shop/bbq' element={<BBQ/>} />
-            </Routes>
-
-            <Routes>
-            <Route path='/shop/table' element={<Table/>} />
-            </Routes>
-
-            <Routes>
-            <Route path='/shop/kitchen' element={<Kitchen/>} />
-          </Routes>
       </div>
   );
 }

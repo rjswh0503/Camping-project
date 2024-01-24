@@ -35,6 +35,12 @@ import './CampApp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './Footer';
 import ShopLayout from './Component/ShopLayout';
+import Tent from './Component/pages/shop/Category/Tent';
+import Sleeping from './Component/pages/shop/Category/Sleeping';
+import Kitchen from './Component/pages/shop/Category/Kitchen';
+import Lamp from './Component/pages/shop/Category/Lamp';
+import BBQ from './Component/pages/shop/Category/BBQ';
+import Chair from './Component/pages/shop/Category/Table';
 
 function App() {
   const [load, upadateLoad] = useState(true);
@@ -105,16 +111,22 @@ function App() {
         <Route path="/camp/board/get/:camp_id" element={<CampBoardDetail />} />
         <Route path="/camp/board/edit/:camp_id" element={<CampBoardUpdate />} />
         <Route
-          path="/shop"
+          path="/shop/*"
           element={
             <ShopLayout>
               <Routes>
                 <Route path="/" element={<ShopMain />} />
-                <Route path="/detail" element={<ShopDetail />} />
+                <Route path="/detail:productId" element={<ShopDetail />} />
                 <Route path="/order" element={<OrderMain />} />
                 <Route path="/sell" element={<SellMain />} />
                 <Route path="/mypage" element={<ShopMyPage />} />
                 <Route path="/cart" element={<ShopCart />} />
+                <Route path="/tent" element={<Tent/>}/>
+                <Route path="/chair" element={<Chair/>}/>
+                <Route path="/sleeping" element={<Sleeping/>}/>
+                <Route path="/kitchen" element={<Kitchen/>}/>S
+                <Route path="/lamp" element={<Lamp/>}/>
+                <Route path="/fireplace" element={<BBQ/>}/>
               </Routes>
             </ShopLayout>
           }

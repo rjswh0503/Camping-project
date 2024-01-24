@@ -3,7 +3,7 @@ import Carousel from '../../Carousel/MainPageCarousel';
 import CategoryList from './CategoryList';
 import Main from '../shop/Main';
 import Search from '../../Search';
-import Nav from '../../../CampNavbar';
+import ShopNav from '../../ShopNav';
 import ButtonUp from '../../../Component/ButtonUp';
 
 const ShopMain = () => 
@@ -20,7 +20,9 @@ const ShopMain = () =>
       <Carousel/>
       </div>
       <div>
+      <ShopNav/>
       <section className='Search'>
+        
         <Search/> 
       </section>
       <section>
