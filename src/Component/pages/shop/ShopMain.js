@@ -17,12 +17,10 @@ const ShopMain = () =>
       <div>
       </div>
       <div style={{paddingTop:'50px'}}>
-      <Carousel/>
       </div>
       <div>
-      <ShopNav/>
       <section className='Search'>
-        
+      
         <Search/> 
       </section>
       <section>
@@ -32,8 +30,6 @@ const ShopMain = () =>
         <Main/>
         <CategoryList/>
       </div>
-     
-    
     </div>
   );
 };

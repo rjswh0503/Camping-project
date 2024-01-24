@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShopDetail from './Component/pages/shop/ShopDetail/ShopDetail';
+import ShopDetail2 from './Component/pages/shop/ShopDetail/ShopDetail2';
 import OrderMain from './Component/pages/shop/ShopOrder/OrderMain';
 import SellMain from './Component/pages/shop/ShopSell/SellMain';
 import {
@@ -62,7 +63,7 @@ function App() {
             <div>
               <h1>안녕하세요. 캠플리에 오신걸 환영합니다.</h1>
               <Link to="/camp">캠핑예약으로 이동하기</Link>
-              <Link to="/shop">쇼핑몰로 이동하기</Link>
+              <Link to="/shop/main">쇼핑몰로 이동하기</Link>
             </div>
           }
         />
@@ -115,12 +116,12 @@ function App() {
           element={
             <ShopLayout>
               <Routes>
-                <Route path="/" element={<ShopMain />} />
-                <Route path="/detail:productId" element={<ShopDetail />} />
+              <Route path="/main" element={<ShopMain />} />
+                <Route path="/detail/:productId" element={<ShopDetail/>} />
                 <Route path="/order" element={<OrderMain />} />
                 <Route path="/sell" element={<SellMain />} />
                 <Route path="/mypage" element={<ShopMyPage />} />
-                <Route path="/cart" element={<ShopCart />} />
+                <Route path="/cart" element={<ShopCart/>} />
                 <Route path="/tent" element={<Tent/>}/>
                 <Route path="/chair" element={<Chair/>}/>
                 <Route path="/sleeping" element={<Sleeping/>}/>

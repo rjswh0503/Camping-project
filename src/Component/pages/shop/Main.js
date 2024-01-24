@@ -43,11 +43,11 @@ const Main = () => {
     
       {products.length > 0 ? (
         <div>
-          <h2 style={{ display: 'flex', justifyContent: 'flex-start' }}>New Items</h2>
+          <h2 style={{ display: 'flex', justifyContent: 'flex-start' }}>신상품</h2>
           {products.map((product) => (
             
             <section style={{float:'left'}} key={product.productId}>
-              <Link to={`/detail/${product.productId}`}>
+              <Link to={`/shop/detail/${product.productId}`}>
                 <ul className='swiper-wrapper'>
                   <li className='swiper-slide swiper-slide-active' style={{
                     width: "272.5px",
@@ -71,7 +71,7 @@ const Main = () => {
                 </ul>
                 
                   <Routes>
-                    <Route path="/detail/${productId}" element={<ShopDetail/>}/>
+                    <Route path="/shop/detail/:productId" element={<ShopDetail/>}/>
                   </Routes>
               </Link>
             </section>

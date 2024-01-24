@@ -5,6 +5,7 @@ import '../css/ShopDetail/ShopDetail.css';
 import ShopFooter from '../../../ShopFooter';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ShopHeader from '../../../ShopHeader';
+import Nav from '../../../../CampNavbar';
 import ShopReview from './ShopReview';
 import ShopMore from './ShopMore';
 import ShopInquiry from './ShopInquiry';
@@ -16,7 +17,7 @@ const ShopDetail = () => {
   const [like, setLike] = useState(false);
 
   useEffect(() => {
-    const fetchData = async ( productId ) => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(`http://localhost:8080/detail/${productId}`);
         setProduct(response.data);
@@ -33,36 +34,35 @@ const ShopDetail = () => {
   };
 
   return (
+    
     <div className='main-shopping'>
-      <ShopHeader />
+      <Nav/>
       <div className='main-section1'>
         <div className='main-section2'>
           <main className='main-section3'>
             {product ? (
               <>
-                <div className='main-img'></div>
+                <div className='main-img'>
+                <div className='right-section-img'>
+                      <img style={{width:'300px',height:'auto'}} src={product.productThumbnail}/>
+                    </div>
+                </div>
                 <section className='right-section'>
                   <div className='right-section2'>무료배송</div>
                   <div className='right-section3'>
                     <h1 className='right-section-title'>{product.productName}</h1>
                     <h2 className='right-section-title2'>{product.productDescription}</h2>
                   </div>
-                  <span className='right-section-sapn4'>
-                    <span>{product.productPrice} 원</span>
-                  </span>
+                  <span>판매가{product.formattedProductPrice}</span>
                   <div className='right-section-login'>
                     로그인 후, 적립 혜택이 제공됩니다.
                   </div>
                   <div>
-                    <div className='right-section-img'>
-                      <img src={product.productThumbnail} alt={product.productName} />
-                    </div>
+                    
                   </div>
                   <ul className='right-section-ul'>
                     <li className='right-section-li'>
                       <dt className='right-section-dt'>배송</dt>
-                      {/* 배송 정보를 표시하려면 여기에 해당 정보를 추가해야 합니다. */}
-                      {/* 예시: <dd className='right-section-dd'>{product.deliveryInfo}</dd> */}
                     </li>
                   </ul>
                   <div className='right-section-footer'>
@@ -87,7 +87,7 @@ const ShopDetail = () => {
           <nav className='nav-first'>
             <ul className='nav-first-ul'>
               <li className='nav-first-ul-li'>
-                <Link to='/more'><span className='nav-first-ul-li-a-span'>상세정보</span></Link>
+                <Link to='shop/detail/:productId/more'><span className='nav-first-ul-li-a-span'>상세정보</span></Link>
               </li>
               <li className='nav-first-ul-li'>
                 <Link to='/review'><span className='nav-first-ul-li-a-span'>후기</span></Link>
@@ -106,8 +106,6 @@ const ShopDetail = () => {
             <Route path='/more' element={<ShopMore productId={productId} />} />
             <Route path='/inquiry' element={<ShopInquiry />} />
           </Routes>
-
-          <ShopFooter />
         </div>
       </div>
     </div>

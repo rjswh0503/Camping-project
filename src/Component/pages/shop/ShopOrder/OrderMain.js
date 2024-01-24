@@ -113,10 +113,10 @@ const OrderMain = ()=> {
                                 </div>
                                 <div>
                                     <select className='form'>
-                                        <option value="none">메시지 선택(선택사항)</option>
-                                        <option value="0">부재시 문 앞에 놓고 가주세요.</option>
-                                        <option value="1">경비실에 맡겨주세요.</option>
-                                        <option value="2">배송전에 문자 주세요.</option>
+                                        <option value="0">메시지 선택(선택사항)</option>
+                                        <option value="1">부재시 문 앞에 놓고 가주세요.</option>
+                                        <option value="2">경비실에 맡겨주세요.</option>
+                                        <option value="3">배송전에 문자 주세요.</option>
                                     </select>
                                 </div>
                             </form>

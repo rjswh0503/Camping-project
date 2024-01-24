@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../CampNavbar';
 
-function Nav( ) {
+function ShopNav( ) {
   return (
    
-      <div><br/>
-        <div className='main-category'>
+      <div>
         <Nav/>
+        <div className='main-category'>
           <div className='contentsWrap'>
             <ul className='clearfix'>
               <li className='f1'>
@@ -53,4 +53,4 @@ function Nav( ) {
   );
 }
 
-export default Nav;
+export default ShopNav;

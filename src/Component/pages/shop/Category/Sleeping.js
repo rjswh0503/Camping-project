@@ -26,7 +26,7 @@ const Tent = () => {
       {products.length > 0 ? (
         <div>
           <section>
-            <h2 style={{ display: 'flex', justifyContent: 'center' }}>{products[0].productCategory}</h2><br />
+            <h2 style={{ display: 'flex', justifyContent: 'center' }}>침낭</h2><br />
             <ul className='swiper-wrapper'>
               {products.map((product) => (
                 <li key={product.productId} className='swiper-slide swiper-slide-active' style={{
@@ -42,7 +42,7 @@ const Tent = () => {
                       <p className="itemName1">{product.productDescription}</p>
                       <div className="itemsPrice clearfix">
                         <div className="fr">
-                          <strong className="sellPrice">{product.productPrice}원</strong>
+                          <strong className="sellPrice">{product.formattedProductPrice}</strong>
                         </div>
                       </div>
                     </div>

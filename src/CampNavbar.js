@@ -93,7 +93,7 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/shop"
+                to="/shop/main"
                 onClick={() => {
                   setisShopIn(!isShopIn);
                 }}
