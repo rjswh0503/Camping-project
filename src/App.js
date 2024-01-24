@@ -10,7 +10,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-import ShopCart from './Component/pages/shop/ShopCart';
+import Cart from './Component/pages/shop/ShopCart/Cart';
 import ShopMain from './Component/pages/shop/ShopMain';
 import ShopMyPage from './Component/pages/shop/ShopMyPage/ShopMyPage';
 import Register from './Component/pages/common/Register';
@@ -24,27 +24,23 @@ import CampBoardAll from './Component/pages/camp/CampBoard/CampBoardAll';
 import CampBoardDetail from './Component/pages/camp/CampBoard/CampBoardDetail';
 import CampBoardUpdate from './Component/pages/camp/CampBoard/CampBoardUpdate';
 import Preloader from './Pre';
-import Navbar from './CampNavbar';
+import Navbar from './Component/pages/camp/CampNavbar';
 import Home from './Component/pages/camp/CampMain/Home/Home';
 import About from './Component/pages/camp/CampMain/About/About';
 import Reservations from './Component/pages/camp/CampMain/Reservations/Reservations';
 import Inquiry from './Component/pages/camp/CampMain/Inquiry/Inquiry';
-import ScrollToTop from './CampScrollToTop';
-import './CampStyle.css';
+import ScrollToTop from './Component/pages/camp/CampScrollToTop';
+import './Component/pages/camp/CampStyle.css';
 import './CampApp.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './Footer';
-import ShopLayout from './Component/ShopLayout';
+import Footer from './Component/pages/camp/CampFooter';
+import ShopLayout from './Component/pages/shop/ShopLayout';
 import Tent from './Component/pages/shop/Category/Tent';
 import Sleeping from './Component/pages/shop/Category/Sleeping';
 import Kitchen from './Component/pages/shop/Category/Kitchen';
 import Lamp from './Component/pages/shop/Category/Lamp';
 import BBQ from './Component/pages/shop/Category/BBQ';
 import Chair from './Component/pages/shop/Category/Table';
-import ShopMore from './Component/pages/shop/ShopDetail/ShopMore';
-import ShopInquiry from './Component/pages/shop/ShopDetail/ShopInquiry';
-import Review from './Component/pages/shop/ShopDetail/ShopReview';
-import OrderProduct from './Component/pages/shop/ShopOrder/OrderProduct';
 import CreateProduct from './Component/pages/shop/ShopOrder/CreateProduct';
 
 
@@ -126,9 +122,9 @@ function App() {
               <Route path="/main" element={<ShopMain />} />
                 <Route path="/detail/:productId" element={<ShopDetail/>} />
                 <Route path="/order" element={<OrderMain />} />
-                <Route path="/sell" element={<CreateProduct />} />
+                <Route path="/sell" target="_blank"  element={<CreateProduct />} />
                 <Route path="/mypage" element={<ShopMyPage />} />
-                <Route path="/cart" element={<ShopCart/>} />
+                <Route path="/cart" element={<Cart/>} />
                 <Route path="/tent" element={<Tent/>}/>
                 <Route path="/chair" element={<Chair/>}/>
                 <Route path="/sleeping" element={<Sleeping/>}/>

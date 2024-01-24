@@ -1,9 +1,8 @@
 import React from 'react';
-import ShopHeader from './ShopHeader';
 import ShopNav from './ShopNav';
-import Nav from '../CampNavbar';
-import Carousel from './Carousel/MainPageCarousel';
-import ButtonUp from '../Component/ButtonUp';
+import Nav from '../camp/CampNavbar';
+import Carousel from '../../Carousel/MainPageCarousel';
+import ButtonUp from './ButtonUp';
 
 
 function ShopLayout({ children }) {

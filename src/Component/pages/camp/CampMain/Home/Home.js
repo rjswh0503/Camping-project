@@ -5,13 +5,11 @@ import homeLogo from '../../../../Assets/12312.png';
 import Menu from './Menu';
 import Type from './Type';
 import Reservations from '../Reservations/Reservations';
-import Nav from '../../../../../CampNavbar';
 
 
 function Home() {
   return (
     <section>
-      <Nav/>
       <Container fluid className="home-section" id="home">
         <Container className="home-content">
           <Row>

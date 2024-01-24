@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import Reply from './Board/Reply';
 
 function CampBoardDetail() {
   const [boardData, setBoardData] = useState({});
@@ -75,7 +76,7 @@ function CampBoardDetail() {
       .catch((error) => {
         console.error("게시글 가져오기 실패:", error);
       });
-  });
+  }, [camp_id, navigate]);
 
   const handleUpdateClick = () => {
     navigate(`/camp/board/edit/${camp_id}`);
@@ -104,6 +105,7 @@ function CampBoardDetail() {
       alert("취소 되었습니다.");
     }
   };
+
 
   return (
     <section>
@@ -162,6 +164,8 @@ function CampBoardDetail() {
       </table>
       <h1>지도</h1>
       <div id="map" style={{ width: "100%", height: "400px" }}></div>
+
+      <Reply/>
     </section>
   );
 }

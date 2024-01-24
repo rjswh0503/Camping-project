@@ -1,6 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import ShopHeader from '../../../ShopHeader';
-import ShopFooter from '../../../ShopFooter';
 import '../../shop/css/ShopOrder/OrderMain.css';
 
 const OrderMain = ()=> {
@@ -27,7 +25,7 @@ const OrderMain = ()=> {
                                     <p className='item-title'>{order.productName}</p>
                                 </div>
                                 <p>
-                                    수량 :
+                                    {order.cartOrder} :
                                     <sapn>1</sapn>
                                 </p>
                                 <p>

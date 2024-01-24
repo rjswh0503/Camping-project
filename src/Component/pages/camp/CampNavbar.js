@@ -3,29 +3,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IoMdSunny } from 'react-icons/io';
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { FaClipboardList } from "react-icons/fa";
 import { Modal } from 'react-bootstrap';
-import logo from '../src/Component/Assets/logo.png';
-import OpenWeatherMap from './Component/pages/camp/CampMain/Home/openWeatherMap';
+import logo from '../../Assets/logo.png';
+import OpenWeatherMap from './CampMain/Home/openWeatherMap';
 import { CgChevronDownO } from "react-icons/cg";
 import { CgCloseO } from "react-icons/cg";
 import { FiShoppingCart } from "react-icons/fi";
-import ShopCart from './Component/pages/shop/ShopCart';
-
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
   const [showWeatherModal, setShowWeatherModal] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [isShopIn, setisShopIn] = useState(false);
 
   const handleWeatherModalClose = () => setShowWeatherModal(false);
   const handleWeatherModalShow = () => setShowWeatherModal(true);
-
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -34,21 +30,17 @@ function NavBar() {
       updateNavbar(false);
     }
   }
-  
-  
- 
-
-  
 
   window.addEventListener('scroll', scrollHandler);
 
   return (
     <Navbar
-    expanded={expand}
-    fixed="top"
-    expand="md"
-    className={navColour ? 'sticky' : 'navbar'}
-  >
+      expanded={expand}
+      fixed="top"
+      expand="md"
+      className={navColour ? 'sticky' : 'navbar'}
+    >
+
       <Container>
         <Navbar.Brand href="/camp" className="d-flex">
           <img
@@ -72,8 +64,18 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/camp" onClick={() => updateExpanded(false)}>
+              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
                 <AiOutlineHome style={{ marginBottom: '2px' }} /> 홈페이지
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/camp/board/all"
+                onClick={() => updateExpanded(false)}
+              >
+                <FaClipboardList style={{ marginBottom: '2px' }} /> 전체 상품
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
@@ -85,29 +87,12 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to={isShopIn ? "/shop/cart" : "/camp/board/all"}
-                onClick={() => {
-                  updateExpanded(false);
-                  handleWeatherModalClose();
-                }}
-              >
-                {isShopIn ? "장바구니" : "전체상품"}
-                <FaClipboardList style={{ marginBottom: '2px' }} />
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
                 to="/shop/main"
-                onClick={() => {
-                  setisShopIn(!isShopIn);
-                }}
+                onClick={() => updateExpanded(false)}
               >
-               
                 <FiShoppingCart style={{ marginBottom: '2px' }} /> 쇼핑몰
               </Nav.Link>
             </Nav.Item>
-
 
             <Nav.Item>
               <Nav.Link href="#" onClick={handleWeatherModalShow}>
@@ -138,7 +123,6 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-      
     </Navbar>
   );
 }

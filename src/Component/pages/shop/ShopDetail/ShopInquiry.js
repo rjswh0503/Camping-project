@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 const ShopInquiry = () => {
   const {productId} = useParams();
-  const [questionNo, setQuestNo] = useState('');
+  const [setQuestNo] = useState('');
 
   useEffect(() => {
     const questtion = async () => {

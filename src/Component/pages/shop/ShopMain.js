@@ -1,10 +1,7 @@
 import React from 'react';
-import Carousel from '../../Carousel/MainPageCarousel';
 import CategoryList from './CategoryList';
 import Main from '../shop/Main';
-import Search from '../../Search';
-import ShopNav from '../../ShopNav';
-import ButtonUp from '../../../Component/ButtonUp';
+import Search from './Search';
 
 const ShopMain = () => 
 {

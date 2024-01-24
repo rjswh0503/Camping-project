@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCartArrowDown } from "react-icons/fa";
-import './pages/shop/css/ShopMain.css';
-import img1 from './img/icons8-2-위-원-48.png'
+import './css/ShopMain.css';
+import img1 from '../../img/icons8-2-위-원-48.png'
 import {Link} from 'react-router-dom';
 
 function SideButton({opacity}){

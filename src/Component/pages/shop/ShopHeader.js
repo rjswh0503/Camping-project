@@ -1,7 +1,7 @@
 // Header.js
 
 import React from 'react';
-import Logo from './img/MainImg/Logo.png';
+import Logo from '../..//img/MainImg/Logo.png';
 import { FaShoppingCart, FaUserAlt } from 'react-icons/fa';
 import { IoExit } from 'react-icons/io5';
 import { Link } from 'react-router-dom';

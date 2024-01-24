@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { NavDropdown } from 'react-bootstrap';
 
 const initialProductState = {
   userId: '', //로그인 된 userId 값 받아오기

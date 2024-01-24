@@ -3,7 +3,6 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { FaCampground } from 'react-icons/fa';
 import { GiCampingTent, GiForestCamp } from 'react-icons/gi';
 import { TbCampfire } from 'react-icons/tb';
-import homeLogo from '../../../../Assets/animat-campfire-color.gif';
 function Menu() {
   const campingLinks = [
     {
