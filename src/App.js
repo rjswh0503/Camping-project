@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ShopDetail from './Component/pages/shop/ShopDetail/ShopDetail';
-import OrderMain from './Component/pages/shop/ShopOrder/OrderMain';
+import OrderMain from './Component/pages/shop/ShopOrder/Order/OrderMain';
 import SellMain from './Component/pages/shop/ShopSell/SellMain';
 import {
   BrowserRouter as Router,
@@ -42,6 +42,17 @@ import Lamp from './Component/pages/shop/Category/Lamp';
 import BBQ from './Component/pages/shop/Category/BBQ';
 import Chair from './Component/pages/shop/Category/Table';
 import CreateProduct from './Component/pages/shop/ShopOrder/CreateProduct';
+import SellerProduct from './Component/pages/shop/ShopOrder/SellerProduct';
+import UpdateProduct from './Component/pages/shop/ShopOrder/UpdateProduct';
+import ShopMore from './Component/pages/shop/ShopDetail/ShopMore/ShopMore';
+import ShopInquiry from './Component/pages/shop/ShopDetail/ShopInquiry/ShopInquiry';
+import ButtonUp from './Component/pages/shop/ButtonUp';
+import ShopReview from './Component/pages/shop/ShopDetail/ShopReview/ShopReview';
+import InquiryDetail from './Component/pages/shop/ShopDetail/ShopInquiry/InquiryDetail';
+import UpdateBoard from './Component/pages/camp/CampBoard/CampBoardUpdate';
+import InquiryUpdate from './Component/pages/shop/ShopDetail/ShopInquiry/InquiryUpdate';
+import InquiryWriter from './Component/pages/shop/ShopDetail/ShopInquiry/InquiryWriter';
+import ReviewWriter from './Component/pages/shop/ShopDetail/ShopReview/ReviewWriter';
 
 
 
@@ -71,6 +82,34 @@ function App() {
           }
         />
         <Route
+        path="/seller"
+        element={
+          <div>
+            <h1>상품관리 페이지.</h1>
+            <Link to="/seller/sell">상품등록</Link>
+            <Link to="/seller/list">상품리스트</Link>
+          </div>
+        }
+      />
+      
+      <Route
+    
+          path="/seller/*"
+          element={
+            <>
+              <Preloader load={load} />
+              <div className="App" id={load ? 'no-scroll' : 'scroll'}>
+                <Routes>
+                  <Route path="/sell" element={<CreateProduct />} />
+                  <Route path="/list" element={<SellerProduct />} />
+                  <Route path="/product/edit/:productId" element={<UpdateProduct/>} />
+                </Routes>
+              </div>
+            </>
+          }
+        />
+
+      <Route
           path="/camp/*"
           element={
             <>
@@ -83,7 +122,13 @@ function App() {
                   <Route path="/reservation" element={<Reservations />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/inquiry" element={<Inquiry />} />
-                  <Route path="/register" element={<Register />} />
+                  
+                </Routes>
+              </div>
+            </>
+          }
+        />
+        <Route path="/register" element={<Register/>}/>
                   <Route
                     path="/register/general"
                     element={<GeneralRegister />}
@@ -100,29 +145,20 @@ function App() {
                     path="/register/manager/email"
                     element={<ManagerEmailRegister />}
                   />
-                </Routes>
-              </div>
-            </>
-          }
-        />
-        <Route
-          path="/register/manager/email"
-          element={<ManagerEmailRegister />}
-        />
         <Route path="/login" element={<Login />} />
         <Route path="/camp/board/add" element={<CampBoard />} />
         <Route path="/camp/board/all" element={<CampBoardAll />} />
         <Route path="/camp/board/get/:camp_id" element={<CampBoardDetail />} />
         <Route path="/camp/board/edit/:camp_id" element={<CampBoardUpdate />} />
+        
         <Route
           path="/shop/*"
           element={
             <ShopLayout>
               <Routes>
               <Route path="/main" element={<ShopMain />} />
-                <Route path="/detail/:productId" element={<ShopDetail/>} />
-                <Route path="/order" element={<OrderMain />} />
-                <Route path="/sell" target="_blank"  element={<CreateProduct />} />
+               
+                <Route path="/order" element={<OrderMain/>} />
                 <Route path="/mypage" element={<ShopMyPage />} />
                 <Route path="/cart" element={<Cart/>} />
                 <Route path="/tent" element={<Tent/>}/>
@@ -131,13 +167,23 @@ function App() {
                 <Route path="/kitchen" element={<Kitchen/>}/>S
                 <Route path="/lamp" element={<Lamp/>}/>
                 <Route path="/fireplace" element={<BBQ/>}/>
-                
               </Routes>
             </ShopLayout>
           }
         />
+
+          <Route path="/shop/detail/:productId" element={<ShopDetail/>}/>
+          <Route path="/shop/detail/:productId/more" element={<ShopMore/>}/>
+          <Route path="/shop/detail/:productId/review" element={<ShopReview/>}/>
+          <Route parh="/shop/detail/:productId/inquiry" element={<ShopInquiry/>}/>
+          <Route path="/shop/question/view/:questionNo" element={<InquiryDetail/>}/>
+          <Route path="/inquiry/update/:questionNo" element={<InquiryUpdate/>}/>
+          <Route path="/inquiry/writer" element={<InquiryWriter/>}/>
+          <Route path="/review/writer" element={<ReviewWriter/>}/>
       </Routes>
+      
       <Footer />
+
     </Router>
   );
 }

@@ -4,9 +4,9 @@ import { useParams, Link } from "react-router-dom";
 import '../css/ShopDetail/ShopDetail.css';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import Nav from '../../camp/CampNavbar';
-import ShopReview from './ShopReview';
-import ShopMore from './ShopMore';
-import ShopInquiry from './ShopInquiry';
+import ShopReview from './ShopReview/ShopReview';
+import ShopMore from './ShopMore/ShopMore';
+import ShopInquiry from './ShopInquiry/ShopInquiry';
 import { Routes, Route} from 'react-router-dom';
 
 
@@ -24,7 +24,7 @@ const ShopDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/detail/${productId}`);
+        const response = await axios.get(`http://localhost:8080/shop/detail/${productId}`);
         setProduct(response.data);
       } catch (error) {
         console.log('Quantity:', quantity);
@@ -134,7 +134,7 @@ const ShopDetail = () => {
                             <div className='right-section-footer-div3'>
                                 <div className='right-section-footer-div3-div'>
                                     <div className='right-section-footer-div3-div-div1'>
-                                        <span className='right-section-footer-div3-span'>총 상품금액 : {quantity * (product.productPrice)}원</span>
+                                        <span className='right-section-footer-div3-span'>총 상품금액: {new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW' }).format(quantity * product.productPrice)}</span>
                                     </div>
                                     <div className='right-section-footer-div3-div2'>
                                         <span className='right-section-footer-div3-div2-span'>적립</span>
@@ -145,23 +145,25 @@ const ShopDetail = () => {
                             <hr></hr>  
                   </ul>
                   <div className='right-section-footer'>
-                    <button className='right-section-footer-button1' type='button'>
-                      <span className='right-section-footer-button-span'>
-                        <div className='like' onClick={handleHeart}>
-                          {like ? (
-                            <AiFillHeart style={{ color: '#FEA92A', fontSize: '30px' }} />
-                          ) : (
-                            <AiOutlineHeart style={{ fontSize: '30px' }} />
-                          )}
-                        </div>
-                      </span>
-                    </button>
-                    <div className='right-section-footer-button-div'>
-                                    <button className='right-section-footer-button-div-button' type='button' style={{radius:'20px'}}>
-                                    <Link to="/shop/cart"><span className='right-section-footer-button-span2'onClick={addToCart}>장바구니 담기</span></Link>
-                                    </button>
+                <button className='right-section-footer-button1' type='button'>
+                  <span className='right-section-footer-button-span'>
+                    <div className='like' onClick={handleHeart}>
+                      {like ? (
+                        <AiFillHeart style={{ color: '#FEA92A', fontSize: '30px' }} />
+                      ) : (
+                        <AiOutlineHeart style={{ fontSize: '30px' }} />
+                      )}
                     </div>
-                  </div>
+                  </span>
+                </button>
+                <div className='right-section-footer-button-div'>
+                  <button className='right-section-footer-button-div-button' type='button'>
+                    <Link to={`/shop/cart?productId=${productId}&quantity=${quantity}`}>
+                      <span className='right-section-footer-button-span2'>장바구니에 추가</span>
+                    </Link>
+                    </button>
+              </div>
+            </div>
                 </section>
               </>
             ) : (
@@ -170,8 +172,8 @@ const ShopDetail = () => {
           </main>
           <nav className='nav-first'>
             <ul className='nav-first-ul'>
-            <li className='nav-first-ul-li'>  
-                <Link to='/more'><span className='nav-first-ul-li-a-span'>상세정보</span></Link>
+              <li className='nav-first-ul-li'>  
+                <Link to="/"><span className='nav-first-ul-li-a-span'>상세정보</span></Link>
               </li> 
               <li className='nav-first-ul-li'>
                 <Link to="/review"><span className='nav-first-ul-li-a-span'>후기</span></Link>
@@ -181,15 +183,17 @@ const ShopDetail = () => {
                 <Link to={`/shop/detail/${productId}/inquiry`}><span className='nav-first-ul-li-a-span'>문의</span></Link>
               </li>
             </ul>
-            <Routes>
-                <Route path="/" element={<ShopMore/>}>
-                </Route>
-                <Route path="/review" element={<ShopReview/>}/>
-                <Route path="/inquiry" element={<ShopInquiry/>}/>
-            </Routes>   
+             
           </nav>
-            
+          
         </div>
+        <hr></hr>
+        <ShopMore/>
+        <hr></hr>
+        <ShopReview/>
+        <hr></hr>
+        <ShopInquiry/>
+        <hr></hr> 
         <div className='Footer'>
         </div>
       </div>
